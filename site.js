@@ -2,18 +2,19 @@
 (function () {
   // ---------- Config (edit here) ----------
   const CFG = {
-    phone: '+994 00 000 00 00',          // TODO: Azi's number
-    whatsapp: '994000000000',            // TODO: digits only, same number
+    phone: '+994 50 770 99 66',
+    whatsapp: '994507709966',
     instagram: 'https://www.instagram.com/meatadore/',
-    wolt: 'https://wolt.com/',           // TODO: real Wolt link
-    bolt: 'https://food.bolt.eu/',       // TODO: real Bolt Food link
+    tiktok: 'https://www.tiktok.com/@meatadore',
+    wolt: 'https://wolt.com/az/aze/baku/restaurant/meatadore',
+    bolt: '',                            // Bolt Food link — add when available
   };
   const BRANCHES = [
-    {name:{az:"Filial 1 — Nəsimi", en:"Branch 1 — Nasimi"}, addr:{az:"Ünvan daxil ediləcək, Bakı", en:"Address to be added, Baku"}, hours:"12:00 – 00:00", tel:"+994 00 000 00 01", map:"https://maps.google.com/?q=Meatadore+Baku", photos:["assets/web/table-spread.jpg","assets/web/guest-eating.jpg","assets/web/burger-fries-menu.jpg"]},
-    {name:{az:"Filial 2 — Yasamal", en:"Branch 2 — Yasamal"}, addr:{az:"Ünvan daxil ediləcək, Bakı", en:"Address to be added, Baku"}, hours:"12:00 – 00:00", tel:"+994 00 000 00 02", map:"https://maps.google.com/?q=Meatadore+Baku", photos:["assets/web/onion-rings.jpg","assets/web/table-spread.jpg","assets/web/foil-wrap-logo.jpg"]},
-    {name:{az:"Filial 3 — Nərimanov", en:"Branch 3 — Narimanov"}, addr:{az:"Ünvan daxil ediləcək, Bakı", en:"Address to be added, Baku"}, hours:"12:00 – 00:00", tel:"+994 00 000 00 03", map:"https://maps.google.com/?q=Meatadore+Baku", photos:["assets/web/burger-fries-menu.jpg","assets/web/triple-cheeseburger-hands.jpg","assets/web/guest-eating.jpg"]},
-    {name:{az:"Filial 4 — Xətai", en:"Branch 4 — Khatai"}, addr:{az:"Ünvan daxil ediləcək, Bakı", en:"Address to be added, Baku"}, hours:"12:00 – 00:00", tel:"+994 00 000 00 04", map:"https://maps.google.com/?q=Meatadore+Baku", photos:["assets/web/guest-eating.jpg","assets/web/onion-rings.jpg","assets/web/table-spread.jpg"]},
-    {name:{az:"Filial 5 — Səbail", en:"Branch 5 — Sabail"}, addr:{az:"Ünvan daxil ediləcək, Bakı", en:"Address to be added, Baku"}, hours:"12:00 – 00:00", tel:"+994 00 000 00 05", map:"https://maps.google.com/?q=Meatadore+Baku", photos:["assets/web/foil-wrap-logo.jpg","assets/web/burger-fries-menu.jpg","assets/web/table-spread.jpg"]},
+    {name:{az:"Sahil (Mərkəz)", en:"Sahil (Downtown)"}, addr:{az:"H. Z. Tağıyev küç. 6, Bakı", en:"6 Haji Zeynalabdin Taghiyev St, Baku"}, hours:{az:"B.e–Cü 12:00–01:00 · Ş–B 12:00–02:00", en:"Mon–Fri 12:00–01:00 · Sat–Sun 12:00–02:00"}, tel:"+994 50 770 99 66", map:"https://maps.app.goo.gl/C61J2pLQvAEkerWWA", photos:["assets/web/table-spread.jpg","assets/web/guest-eating.jpg","assets/web/burger-fries-menu.jpg"]},
+    {name:{az:"Nizami (Caspian)", en:"Nizami (Caspian)"}, addr:{az:"Cəfər Cabbarlı küç. 38, Bakı", en:"38 Jafar Jabbarli St, Baku"}, hours:{az:"B.e–Ş 12:00–00:00 · B 12:00–02:00", en:"Mon–Sat 12:00–00:00 · Sun 12:00–02:00"}, tel:"+994 51 512 34 70", map:"https://maps.app.goo.gl/xtfJTt7RzrqCkG1E8", photos:["assets/web/onion-rings.jpg","assets/web/table-spread.jpg","assets/web/foil-wrap-logo.jpg"]},
+    {name:{az:"Nərimanov (Whitestone)", en:"Narimanov (Whitestone)"}, addr:{az:"İzzətdin Həsənoğlu küç. 11, Bakı", en:"11 Izzatdin Hasanoglu St, Baku"}, hours:{az:"B.e–Ş 12:00–00:00 · B 12:00–02:00", en:"Mon–Sat 12:00–00:00 · Sun 12:00–02:00"}, tel:"+994 10 712 99 66", map:"https://maps.app.goo.gl/75RbXZXZXe6hat9G8", photos:["assets/web/burger-fries-menu.jpg","assets/web/triple-cheeseburger-hands.jpg","assets/web/guest-eating.jpg"]},
+    {name:{az:"Ağ Şəhər", en:"White City"}, addr:{az:"Mərkəzi Bulvar küç. 1, Bakı", en:"1 Markazi Bulvar St, Baku"}, hours:{az:"B.e–Ş 12:00–00:00 · B 12:00–02:00", en:"Mon–Sat 12:00–00:00 · Sun 12:00–02:00"}, tel:"+994 10 321 99 66", map:"https://maps.app.goo.gl/FXAE962VdKrWjPwT6", photos:["assets/web/guest-eating.jpg","assets/web/onion-rings.jpg","assets/web/table-spread.jpg"]},
+    {name:{az:"5-ci filial", en:"5th location"}, addr:{az:"Ünvan daxil ediləcək", en:"Address to be added"}, hours:{az:"12:00–00:00", en:"12:00–00:00"}, tel:"+994 50 770 99 66", map:"https://maps.app.goo.gl/C61J2pLQvAEkerWWA", photos:["assets/web/foil-wrap-logo.jpg","assets/web/burger-fries-menu.jpg","assets/web/table-spread.jpg"]},
   ];
 
   let lang = 'az';
@@ -61,15 +62,15 @@
     if (os) os.innerHTML = `<div class="wrap">
       <span class="label">${lang==='az'?'Sifariş:':'Order:'}</span>
       <a class="chip" href="${CFG.wolt}" target="_blank" rel="noopener"><b style="background:#00c2e8"></b>Wolt</a>
-      <a class="chip" href="${CFG.bolt}" target="_blank" rel="noopener"><b style="background:#34d186"></b>Bolt Food</a>
+      ${CFG.bolt?`<a class="chip" href="${CFG.bolt}" target="_blank" rel="noopener"><b style="background:#34d186"></b>Bolt Food</a>`:''}
       <a class="chip" href="${wa('Salam, Meatadore!')}" target="_blank" rel="noopener"><b style="background:var(--wa)"></b>${lang==='az'?'WhatsApp (pulsuz çatdırılma)':'WhatsApp (free delivery)'}</a>
       <a class="chip" href="${CFG.instagram}" target="_blank" rel="noopener"><b style="background:#e1306c"></b>Instagram</a>
     </div>`;
 
     document.getElementById('shell-footer').innerHTML = `<div class="wrap">
       <div><h4>${lang==='az'?'Əlaqə':'Contact'}</h4><div class="phone"><a href="tel:${CFG.phone.replace(/\s/g,'')}" style="text-decoration:none">${CFG.phone}</a></div>
-        <div style="margin-top:8px"><a href="${wa('Salam, Meatadore!')}" target="_blank" rel="noopener">WhatsApp</a> · <a href="${CFG.instagram}" target="_blank" rel="noopener">@meatadore</a></div></div>
-      <div><h4>${lang==='az'?'İş saatları':'Hours'}</h4><div>${lang==='az'?'Hər gün 12:00 – 00:00':'Every day 12:00 – 00:00'}</div>
+        <div style="margin-top:8px"><a href="${wa('Salam, Meatadore!')}" target="_blank" rel="noopener">WhatsApp</a> · <a href="${CFG.instagram}" target="_blank" rel="noopener">Instagram</a> · <a href="${CFG.tiktok}" target="_blank" rel="noopener">TikTok</a></div></div>
+      <div><h4>${lang==='az'?'İş saatları':'Hours'}</h4><div>${lang==='az'?'Həftə içi 12:00 – 00:00':'Weekdays 12:00 – 00:00'}</div><div>${lang==='az'?'Həftə sonu 12:00 – 02:00':'Weekends 12:00 – 02:00'}</div>
         <div style="font-size:13px;color:#a8988e">${lang==='az'?'Business lunch: həftə içi 12:00–15:00':'Business lunch: weekdays 12:00–15:00'}</div></div>
       <div><h4>${lang==='az'?'Filiallar':'Locations'}</h4><div style="font-size:14px;line-height:1.8">${BRANCHES.map(b=>`<div>${T(b.name)} · ${b.tel}</div>`).join('')}</div></div>
       <div class="fine">© ${new Date().getFullYear()} Meatadore. ${lang==='az'?'Xidmət haqqı 6%. Qiymətlər QR menyu ilə eynidir.':'Service charge 6%. Prices match our QR menu.'}</div>
@@ -119,7 +120,7 @@
     const v = document.getElementById('bview'); v.hidden = false;
     document.getElementById('bvName').textContent = T(b.name);
     document.getElementById('bvAddr').textContent = T(b.addr);
-    document.getElementById('bvHours').textContent = (lang === 'az' ? 'Hər gün ' : 'Daily ') + b.hours;
+    document.getElementById('bvHours').textContent = T(b.hours);
     document.getElementById('bvMap').href = b.map;
     document.getElementById('bvMap').textContent = lang === 'az' ? 'Xəritədə aç' : 'Open in Maps';
     const tel = document.getElementById('bvTel'); tel.textContent = b.tel; tel.href = 'tel:' + b.tel.replace(/\s/g, '');

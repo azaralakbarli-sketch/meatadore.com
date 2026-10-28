@@ -10,9 +10,9 @@
     bolt: '',                            // Bolt Food link — add when available
   };
   const BRANCHES = [
-    {name:{az:"Sahil (Mərkəz)", en:"Sahil (Downtown)"}, addr:{az:"H. Z. Tağıyev küç. 6, Bakı", en:"6 Haji Zeynalabdin Taghiyev St, Baku"}, hours:{az:"B.e–Cü 12:00–01:00 · Ş–B 12:00–02:00", en:"Mon–Fri 12:00–01:00 · Sat–Sun 12:00–02:00"}, tel:"+994 50 770 99 66", wa:"994507709966", map:"https://maps.app.goo.gl/C61J2pLQvAEkerWWA", photos:["assets/web/table-spread.jpg","assets/web/guest-eating.jpg","assets/web/burger-fries-menu.jpg"]},
+    {name:{az:"Sahil (Mərkəz)", en:"Sahil (Downtown)"}, addr:{az:"H. Z. Tağıyev küç. 6, Bakı", en:"6 Haji Zeynalabdin Taghiyev St, Baku"}, hours:{az:"B.e–Cü 12:00–01:00 · Ş–B 12:00–02:00", en:"Mon–Fri 12:00–01:00 · Sat–Sun 12:00–02:00"}, tel:"+994 50 770 99 66", wa:"994507709966", map:"https://maps.app.goo.gl/C61J2pLQvAEkerWWA", photos:["assets/web/branch-sahil-mural.jpg","assets/web/table-spread.jpg","assets/web/guest-eating.jpg"]},
     {name:{az:"Nizami (Caspian)", en:"Nizami (Caspian)"}, addr:{az:"Cəfər Cabbarlı küç. 38, Bakı", en:"38 Jafar Jabbarli St, Baku"}, hours:{az:"B.e–Ş 12:00–00:00 · B 12:00–02:00", en:"Mon–Sat 12:00–00:00 · Sun 12:00–02:00"}, tel:"+994 51 512 34 70", wa:"994515123470", map:"https://maps.app.goo.gl/xtfJTt7RzrqCkG1E8", photos:["assets/web/onion-rings.jpg","assets/web/table-spread.jpg","assets/web/foil-wrap-logo.jpg"]},
-    {name:{az:"Nərimanov (Whitestone)", en:"Narimanov (Whitestone)"}, addr:{az:"İzzətdin Həsənoğlu küç. 11, Bakı", en:"11 Izzatdin Hasanoglu St, Baku"}, hours:{az:"B.e–Ş 12:00–00:00 · B 12:00–02:00", en:"Mon–Sat 12:00–00:00 · Sun 12:00–02:00"}, tel:"+994 10 712 99 66", wa:"994107129966", map:"https://maps.app.goo.gl/75RbXZXZXe6hat9G8", photos:["assets/web/burger-fries-menu.jpg","assets/web/triple-cheeseburger-hands.jpg","assets/web/guest-eating.jpg"]},
+    {name:{az:"Nərimanov (Whitestone)", en:"Narimanov (Whitestone)"}, addr:{az:"İzzətdin Həsənoğlu küç. 11, Bakı", en:"11 Izzatdin Hasanoglu St, Baku"}, hours:{az:"B.e–Ş 12:00–00:00 · B 12:00–02:00", en:"Mon–Sat 12:00–00:00 · Sun 12:00–02:00"}, tel:"+994 10 712 99 66", wa:"994107129966", map:"https://maps.app.goo.gl/75RbXZXZXe6hat9G8", photos:["assets/web/branch-narimanov-sign.jpg","assets/web/burger-fries-menu.jpg","assets/web/triple-cheeseburger-hands.jpg"]},
     {name:{az:"Ağ Şəhər", en:"White City"}, addr:{az:"Mərkəzi Bulvar küç. 1, Bakı", en:"1 Markazi Bulvar St, Baku"}, hours:{az:"B.e–Ş 12:00–00:00 · B 12:00–02:00", en:"Mon–Sat 12:00–00:00 · Sun 12:00–02:00"}, tel:"+994 10 321 99 66", wa:"994103219966", map:"https://maps.app.goo.gl/FXAE962VdKrWjPwT6", photos:["assets/web/guest-eating.jpg","assets/web/onion-rings.jpg","assets/web/table-spread.jpg"]},
     {name:{az:"5-ci filial", en:"5th location"}, addr:{az:"Ünvan daxil ediləcək", en:"Address to be added"}, hours:{az:"12:00–00:00", en:"12:00–00:00"}, tel:"", wa:"", map:"https://maps.app.goo.gl/C61J2pLQvAEkerWWA", photos:["assets/web/foil-wrap-logo.jpg","assets/web/burger-fries-menu.jpg","assets/web/table-spread.jpg"]},
   ];
@@ -148,11 +148,27 @@
     const c = document.getElementById('bclose'); if (c && !c.dataset.bound) { c.dataset.bound = 1; c.addEventListener('click', () => { document.getElementById('bview').hidden = true; clearInterval(slideTimer); }); }
   }
 
+
+  // Guest reviews — reposted by @meatadore in the "#theyloveit" Instagram highlight
+  const REVIEWS = [
+    {who:"Rovshan Akbarov", q:{az:"Philly Cheesesteak-i sınadıq. Bu sendviçin vətənində yarım il yaşamış adam kimi deyirəm: dadı orijinaldan demək olar fərqlənmir. Gəlin, dadına baxın!", en:"We tried the Philly Cheesesteak. As someone who lived half a year where this sandwich comes from: the taste is almost indistinguishable from the original. Come and try it!"}, note:{az:"rus dilindən", en:"translated from Russian"}},
+    {who:"@_hasanzadeh_p", q:{az:"Ləzzətli, doyumcul. Səhifədə gördük, getdik dadına baxmağa. Möhtəşəm.", en:"Delicious and filling. Saw it on the page, went to try it. Magnificent."}, note:{az:"", en:"translated from Azerbaijani"}},
+    {who:"@whygo1", q:{az:"All I love: Burger & Cola.", en:"All I love: Burger & Cola."}},
+    {who:"@gastrobaku__", q:{az:"Soooo good.", en:"Soooo good."}},
+    {who:"@nigar.mammadli", q:{az:"So tasty.", en:"So tasty."}},
+    {who:"Instagram", q:{az:"Adam bilmir hardan başlasın…", en:"You don’t know where to start…"}, note:{az:"", en:"translated from Azerbaijani"}},
+    {who:"Instagram", q:{az:"Proper tasty hangover food! Make burgers even bigger plss!", en:"Proper tasty hangover food! Make burgers even bigger plss!"}},
+  ];
+  function renderReviews() {
+    const g = document.getElementById('reviewsGrid'); if (!g) return;
+    g.innerHTML = REVIEWS.map(r => `<div class="review"><div class="q">“${T(r.q)}”</div><div class="who">${r.who}${r.note && T(r.note) ? ` <span class="lang">· ${T(r.note)}</span>` : ''}</div></div>`).join('');
+  }
+
   function setLang(l) { lang = l; try { localStorage.setItem('meatadore-lang', l); } catch (e) {} render(); }
   function render() {
     document.documentElement.lang = lang;
     document.querySelectorAll('[data-az]').forEach(el => { el.textContent = el.getAttribute('data-' + lang); });
-    shell(); renderMenu(); renderTeaser(); renderBranches();
+    shell(); renderMenu(); renderTeaser(); renderBranches(); renderReviews();
   }
   render();
 })();

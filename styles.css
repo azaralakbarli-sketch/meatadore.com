@@ -169,3 +169,8 @@ nav.mobile[hidden]{display:none!important}
 .reviews{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
 .review{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px}
 .review p{margin:0;font-size:15px}.review .who{font-size:13px;color:var(--ink-soft);font-weight:600}
+
+.hero h1.slogan{font-size:clamp(38px,5.6vw,72px);max-width:15ch;line-height:1.02}
+.hero p{font-size:20px;font-weight:600}
+.review .q{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.25}
+.review .lang{font-size:11px;color:var(--ink-soft);letter-spacing:.06em;text-transform:uppercase}

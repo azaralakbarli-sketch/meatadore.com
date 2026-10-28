@@ -14,7 +14,7 @@
     {name:{az:"Nizami (Caspian)", en:"Nizami (Caspian)"}, addr:{az:"Cəfər Cabbarlı küç. 38, Bakı", en:"38 Jafar Jabbarli St, Baku"}, hours:{az:"B.e–Ş 12:00–00:00 · B 12:00–02:00", en:"Mon–Sat 12:00–00:00 · Sun 12:00–02:00"}, tel:"+994 51 512 34 70", wa:"994515123470", map:"https://maps.app.goo.gl/xtfJTt7RzrqCkG1E8", photos:["assets/web/onion-rings.jpg","assets/web/table-spread.jpg","assets/web/foil-wrap-logo.jpg"]},
     {name:{az:"Nərimanov (Whitestone)", en:"Narimanov (Whitestone)"}, addr:{az:"İzzətdin Həsənoğlu küç. 11, Bakı", en:"11 Izzatdin Hasanoglu St, Baku"}, hours:{az:"B.e–Ş 12:00–00:00 · B 12:00–02:00", en:"Mon–Sat 12:00–00:00 · Sun 12:00–02:00"}, tel:"+994 10 712 99 66", wa:"994107129966", map:"https://maps.app.goo.gl/75RbXZXZXe6hat9G8", photos:["assets/web/branch-narimanov-sign.jpg","assets/web/burger-fries-menu.jpg","assets/web/triple-cheeseburger-hands.jpg"]},
     {name:{az:"Ağ Şəhər", en:"White City"}, addr:{az:"Mərkəzi Bulvar küç. 1, Bakı", en:"1 Markazi Bulvar St, Baku"}, hours:{az:"B.e–Ş 12:00–00:00 · B 12:00–02:00", en:"Mon–Sat 12:00–00:00 · Sun 12:00–02:00"}, tel:"+994 10 321 99 66", wa:"994103219966", map:"https://maps.app.goo.gl/FXAE962VdKrWjPwT6", photos:["assets/web/guest-eating.jpg","assets/web/onion-rings.jpg","assets/web/table-spread.jpg"]},
-    {name:{az:"5-ci filial", en:"5th location"}, addr:{az:"Ünvan daxil ediləcək", en:"Address to be added"}, hours:{az:"12:00–00:00", en:"12:00–00:00"}, tel:"", wa:"", map:"https://maps.app.goo.gl/C61J2pLQvAEkerWWA", photos:["assets/web/foil-wrap-logo.jpg","assets/web/burger-fries-menu.jpg","assets/web/table-spread.jpg"]},
+        {name:{az:"SABAH.city", en:"SABAH.city"}, addr:{az:"SABAH.city İnnovasiya Mərkəzi, Bakı", en:"SABAH.city Innovation Center, Baku"}, hours:{az:"Tezliklə", en:"Coming soon"}, tel:"", wa:"", map:"https://maps.google.com/?q=SABAH.city+Innovation+Center+Baku", photos:["assets/web/foil-wrap-logo.jpg","assets/web/burger-fries-menu.jpg","assets/web/table-spread.jpg"], soon:true},
   ];
 
   let lang = 'az';
@@ -141,7 +141,7 @@
     const g = document.getElementById('bgrid'); if (!g) return; g.innerHTML = '';
     BRANCHES.forEach(b => {
       const el = document.createElement('button'); el.type = 'button'; el.className = 'bcard';
-      el.innerHTML = `<span class="bn">${T(b.name)}</span><span class="ba">${T(b.addr)}</span><span class="bp">${b.tel||''}</span><span class="open">${lang === 'az' ? 'Fotolar və xəritə →' : 'Photos & map →'}</span>`;
+      el.innerHTML = `<span class="bn">${T(b.name)}</span><span class="ba">${T(b.addr)}</span><span class="bp">${b.tel||''}</span><span class="open">${b.soon ? (lang==='az'?'Tezliklə':'Coming soon') : (lang === 'az' ? 'Fotolar və xəritə →' : 'Photos & map →')}</span>`;
       el.addEventListener('click', () => openBranch(b));
       g.appendChild(el);
     });

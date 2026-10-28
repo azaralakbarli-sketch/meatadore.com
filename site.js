@@ -79,7 +79,7 @@
       <div><h4>${lang==='az'?'İş saatları':'Hours'}</h4><div>${lang==='az'?'Həftə içi 12:00 – 00:00':'Weekdays 12:00 – 00:00'}</div><div>${lang==='az'?'Həftə sonu 12:00 – 02:00':'Weekends 12:00 – 02:00'}</div>
         <div style="font-size:13px;color:#a8988e">${lang==='az'?'Business lunch: həftə içi 12:00–15:00':'Business lunch: weekdays 12:00–15:00'}</div></div>
       <div><h4>${lang==='az'?'Filiallar':'Locations'}</h4><div style="font-size:14px;line-height:1.8">${BRANCHES.filter(b=>b.tel).map(b=>`<div>${T(b.name)} · ${b.tel}</div>`).join('')}</div></div>
-      <div class="fine">© ${new Date().getFullYear()} Meatadore. ${lang==='az'?'Xidmət haqqı 6%. Qiymətlər QR menyu ilə eynidir.':'Service charge 6%. Prices match our QR menu.'}</div>
+      <div class="fine"><span class="tags">#bestburgerintown · #özüdü · #dəhşətamiz · #theyloveit</span><br>© ${new Date().getFullYear()} Meatadore. ${lang==='az'?'Xidmət haqqı 6%. Qiymətlər QR menyu ilə eynidir.':'Service charge 6%. Prices match our QR menu.'}</div>
     </div>`;
   }
 

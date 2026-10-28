@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Menyu — Meatadore</title>
+<meta name="description" content="Meatadore menyusu: burgerlər (80/160/240 qr), cheesesteak, hot-doq, qarnirlər, souslar, içkilər. Qiymətlər QR menyu ilə eynidir.">
+<link rel="icon" href="assets/web/logo-circle.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="menu">
+<div id="shell-top"></div>
+
+<div class="menu-head">
+  <div class="wrap">
+    <span class="eyebrow" style="color:#ffb3aa" data-az="QR menyu ilə eynidir" data-en="Same as our QR menu">QR menyu ilə eynidir</span>
+    <h1 data-az="Menyu" data-en="Menu">Menyu</h1>
+    <p data-az="Burgerlərdə üç ölçü var: 80, 160 və 240 qr kotlet, hamısı kartof fri ilə. Qiymətlər manatladır, acılı məhsullar işarələnib." data-en="Burgers come in three sizes: 80, 160 and 240 g patties, all with fries. Prices in AZN; spicy items are marked.">Burgerlərdə üç ölçü var: 80, 160 və 240 qr kotlet, hamısı kartof fri ilə. Qiymətlər manatladır, acılı məhsullar işarələnib.</p>
+  </div>
+</div>
+
+<div class="order" id="order-strip"></div>
+
+<section id="menu" style="padding-top:28px">
+  <div class="wrap">
+    <div class="tabs sticky" id="tabs" role="tablist"></div>
+    <div id="menuRoot"></div>
+  </div>
+</section>
+
+<footer id="contact"><div id="shell-footer"></div></footer>
+
+<script src="menu-data.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

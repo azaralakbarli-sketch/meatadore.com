@@ -1,0 +1,150 @@
+// Meatadore — shared site script: language switch, header/footer, branches, menu rendering.
+(function () {
+  // ---------- Config (edit here) ----------
+  const CFG = {
+    phone: '+994 00 000 00 00',          // TODO: Azi's number
+    whatsapp: '994000000000',            // TODO: digits only, same number
+    instagram: 'https://www.instagram.com/meatadore/',
+    wolt: 'https://wolt.com/',           // TODO: real Wolt link
+    bolt: 'https://food.bolt.eu/',       // TODO: real Bolt Food link
+  };
+  const BRANCHES = [
+    {name:{az:"Filial 1 — Nəsimi", en:"Branch 1 — Nasimi"}, addr:{az:"Ünvan daxil ediləcək, Bakı", en:"Address to be added, Baku"}, hours:"12:00 – 00:00", tel:"+994 00 000 00 01", map:"https://maps.google.com/?q=Meatadore+Baku", photos:["assets/web/table-spread.jpg","assets/web/guest-eating.jpg","assets/web/burger-fries-menu.jpg"]},
+    {name:{az:"Filial 2 — Yasamal", en:"Branch 2 — Yasamal"}, addr:{az:"Ünvan daxil ediləcək, Bakı", en:"Address to be added, Baku"}, hours:"12:00 – 00:00", tel:"+994 00 000 00 02", map:"https://maps.google.com/?q=Meatadore+Baku", photos:["assets/web/onion-rings.jpg","assets/web/table-spread.jpg","assets/web/foil-wrap-logo.jpg"]},
+    {name:{az:"Filial 3 — Nərimanov", en:"Branch 3 — Narimanov"}, addr:{az:"Ünvan daxil ediləcək, Bakı", en:"Address to be added, Baku"}, hours:"12:00 – 00:00", tel:"+994 00 000 00 03", map:"https://maps.google.com/?q=Meatadore+Baku", photos:["assets/web/burger-fries-menu.jpg","assets/web/triple-cheeseburger-hands.jpg","assets/web/guest-eating.jpg"]},
+    {name:{az:"Filial 4 — Xətai", en:"Branch 4 — Khatai"}, addr:{az:"Ünvan daxil ediləcək, Bakı", en:"Address to be added, Baku"}, hours:"12:00 – 00:00", tel:"+994 00 000 00 04", map:"https://maps.google.com/?q=Meatadore+Baku", photos:["assets/web/guest-eating.jpg","assets/web/onion-rings.jpg","assets/web/table-spread.jpg"]},
+    {name:{az:"Filial 5 — Səbail", en:"Branch 5 — Sabail"}, addr:{az:"Ünvan daxil ediləcək, Bakı", en:"Address to be added, Baku"}, hours:"12:00 – 00:00", tel:"+994 00 000 00 05", map:"https://maps.google.com/?q=Meatadore+Baku", photos:["assets/web/foil-wrap-logo.jpg","assets/web/burger-fries-menu.jpg","assets/web/table-spread.jpg"]},
+  ];
+
+  let lang = 'az';
+  try { const s = localStorage.getItem('meatadore-lang'); if (s === 'en' || s === 'az') lang = s; } catch (e) {}
+  const T = (o) => typeof o === 'string' ? o : (o ? (o[lang] ?? o.az ?? '') : '');
+  const money = (v) => v.toFixed(2).replace('.', ',') + ' ₼';
+  const SIZES = ['80 qr', '160 qr', '240 qr'];
+  const wa = (msg) => `https://wa.me/${CFG.whatsapp}?text=${encodeURIComponent(msg)}`;
+  const page = document.body.dataset.page || 'home';
+
+  // ---------- Header / WhatsApp bar / order strip / footer ----------
+  function shell() {
+    const nav = [
+      ['index.html', {az:'Ana səhifə', en:'Home'}, 'home'],
+      ['menu.html', {az:'Menyu', en:'Menu'}, 'menu'],
+      ['index.html#branches', {az:'Filiallar', en:'Locations'}],
+      ['index.html#story', {az:'Hekayəmiz', en:'Our story'}],
+      ['index.html#corporate', {az:'Korporativ', en:'Corporate'}],
+      ['index.html#contact', {az:'Əlaqə', en:'Contact'}],
+    ];
+    document.getElementById('shell-top').innerHTML = `
+    <div class="wa-bar"><div class="wrap">
+      <span><strong>${lang==='az'?'Pulsuz çatdırılma':'Free delivery'}</strong> <span>${lang==='az'?'— sifarişi WhatsApp-la yazın':'— order on WhatsApp'}</span></span>
+      <a class="wa-btn" href="${wa(lang==='az'?'Salam, Meatadore! Sifariş vermək istəyirəm.':'Hi Meatadore! I would like to order.')}" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+        <span>${lang==='az'?'WhatsApp-la sifariş ver':'Order on WhatsApp'}</span>
+      </a>
+    </div></div>
+    <header class="site"><div class="wrap">
+      <a class="brand" href="index.html"><img class="logo" src="assets/web/logo-circle.png" alt="Meatadore"><img class="word" src="assets/web/wordmark-white.png" alt=""></a>
+      <nav class="main" aria-label="Site">${nav.map(n=>`<a href="${n[0]}" ${n[2]===page?'aria-current="page"':''}>${T(n[1])}</a>`).join('')}</nav>
+      <div class="lang" role="group" aria-label="Dil / Language">
+        <button type="button" data-lang="az" aria-pressed="${lang==='az'}">AZ</button>
+        <button type="button" data-lang="en" aria-pressed="${lang==='en'}">EN</button>
+      </div>
+      <button class="burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+    <nav class="mobile" hidden>${nav.map(n=>`<a href="${n[0]}">${T(n[1])}</a>`).join('')}</nav>
+    </header>`;
+    document.querySelectorAll('#shell-top [data-lang]').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+    const bb = document.querySelector('#shell-top .burger'), mob = document.querySelector('#shell-top nav.mobile');
+    bb.addEventListener('click', () => { mob.hidden = !mob.hidden; bb.setAttribute('aria-expanded', String(!mob.hidden)); });
+
+    const os = document.getElementById('order-strip');
+    if (os) os.innerHTML = `<div class="wrap">
+      <span class="label">${lang==='az'?'Sifariş:':'Order:'}</span>
+      <a class="chip" href="${CFG.wolt}" target="_blank" rel="noopener"><b style="background:#00c2e8"></b>Wolt</a>
+      <a class="chip" href="${CFG.bolt}" target="_blank" rel="noopener"><b style="background:#34d186"></b>Bolt Food</a>
+      <a class="chip" href="${wa('Salam, Meatadore!')}" target="_blank" rel="noopener"><b style="background:var(--wa)"></b>${lang==='az'?'WhatsApp (pulsuz çatdırılma)':'WhatsApp (free delivery)'}</a>
+      <a class="chip" href="${CFG.instagram}" target="_blank" rel="noopener"><b style="background:#e1306c"></b>Instagram</a>
+    </div>`;
+
+    document.getElementById('shell-footer').innerHTML = `<div class="wrap">
+      <div><h4>${lang==='az'?'Əlaqə':'Contact'}</h4><div class="phone"><a href="tel:${CFG.phone.replace(/\s/g,'')}" style="text-decoration:none">${CFG.phone}</a></div>
+        <div style="margin-top:8px"><a href="${wa('Salam, Meatadore!')}" target="_blank" rel="noopener">WhatsApp</a> · <a href="${CFG.instagram}" target="_blank" rel="noopener">@meatadore</a></div></div>
+      <div><h4>${lang==='az'?'İş saatları':'Hours'}</h4><div>${lang==='az'?'Hər gün 12:00 – 00:00':'Every day 12:00 – 00:00'}</div>
+        <div style="font-size:13px;color:#a8988e">${lang==='az'?'Business lunch: həftə içi 12:00–15:00':'Business lunch: weekdays 12:00–15:00'}</div></div>
+      <div><h4>${lang==='az'?'Filiallar':'Locations'}</h4><div style="font-size:14px;line-height:1.8">${BRANCHES.map(b=>`<div>${T(b.name)} · ${b.tel}</div>`).join('')}</div></div>
+      <div class="fine">© ${new Date().getFullYear()} Meatadore. ${lang==='az'?'Xidmət haqqı 6%. Qiymətlər QR menyu ilə eynidir.':'Service charge 6%. Prices match our QR menu.'}</div>
+    </div>`;
+  }
+
+  // ---------- Menu ----------
+  function card(it) {
+    const desc = (it[lang] ?? it.az ?? '');
+    let prices;
+    if (it.p.length === 3) prices = `<div class="prices">` + it.p.map((v,k)=> v==null ? `<div class="na"><small>${SIZES[k]}</small><strong>—</strong></div>` : `<div><small>${SIZES[k]}</small><strong>${money(v)}</strong></div>`).join('') + `</div>`;
+    else prices = `<div class="price1">${money(it.p[0])}</div>`;
+    const tags = (it.hot?`<span class="tag hot">${lang==='az'?'acılı':'spicy'}</span>`:'') + (it.veg?`<span class="tag veg">veggie</span>`:'');
+    return `<article class="card">${it.img?`<img src="assets/menu/${it.img}.jpg" alt="${T(it.n)}" loading="lazy">`:''}<div class="body"><div class="name">${T(it.n)}${tags}</div>${desc?`<p class="ing">${desc}</p>`:''}${prices}</div></article>`;
+  }
+  function renderMenu() {
+    const root = document.getElementById('menuRoot'); if (!root) return; root.innerHTML = '';
+    const tabs = document.getElementById('tabs'); tabs.innerHTML = '';
+    MENU.forEach((c, i) => {
+      const b = document.createElement('button'); b.type = 'button'; b.textContent = T(c.cat); b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+      b.addEventListener('click', () => { document.getElementById('cat' + i).scrollIntoView({ behavior: 'smooth', block: 'start' }); tabs.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', 'false')); b.setAttribute('aria-pressed', 'true'); });
+      tabs.appendChild(b);
+      const sec = document.createElement('div'); sec.className = 'cat'; sec.id = 'cat' + i;
+      sec.innerHTML = `<h3>${T(c.cat)}</h3>` + (c.note ? `<p class="note">${T(c.note)}</p>` : '');
+      if (c.compact) {
+        const g = document.createElement('div'); g.className = 'compact';
+        c.items.forEach(it => { g.innerHTML += `<div><span>${T(it.n)}</span><strong>${money(it.p[0])}</strong></div>`; });
+        sec.appendChild(g);
+      } else {
+        const g = document.createElement('div'); g.className = 'grid';
+        c.items.forEach(it => { g.innerHTML += card(it); });
+        sec.appendChild(g);
+      }
+      root.appendChild(sec);
+    });
+  }
+  function renderTeaser() {
+    const t = document.getElementById('teaser'); if (!t) return;
+    const picks = ['Queen', 'Karma', 'Mary Jane', 'Lord Of The Rings', 'Philly Cheesesteak', 'Fancy'];
+    const all = MENU.flatMap(c => c.items);
+    t.innerHTML = picks.map(n => all.find(i => i.n === n)).filter(Boolean).map(card).join('');
+  }
+
+  // ---------- Branches ----------
+  let slideTimer = null, slideIdx = 0;
+  function openBranch(b) {
+    const v = document.getElementById('bview'); v.hidden = false;
+    document.getElementById('bvName').textContent = T(b.name);
+    document.getElementById('bvAddr').textContent = T(b.addr);
+    document.getElementById('bvHours').textContent = (lang === 'az' ? 'Hər gün ' : 'Daily ') + b.hours;
+    document.getElementById('bvMap').href = b.map;
+    document.getElementById('bvMap').textContent = lang === 'az' ? 'Xəritədə aç' : 'Open in Maps';
+    const tel = document.getElementById('bvTel'); tel.textContent = b.tel; tel.href = 'tel:' + b.tel.replace(/\s/g, '');
+    const s = document.getElementById('slides'); s.innerHTML = b.photos.map((p, i) => `<img src="${p}" alt="" class="${i === 0 ? 'on' : ''}">`).join('');
+    const d = document.getElementById('dots'); d.innerHTML = b.photos.map((p, i) => `<i class="${i === 0 ? 'on' : ''}"></i>`).join('');
+    clearInterval(slideTimer); slideIdx = 0;
+    slideTimer = setInterval(() => { const imgs = s.querySelectorAll('img'); const dots = d.querySelectorAll('i'); imgs[slideIdx].classList.remove('on'); dots[slideIdx].classList.remove('on'); slideIdx = (slideIdx + 1) % imgs.length; imgs[slideIdx].classList.add('on'); dots[slideIdx].classList.add('on'); }, 3200);
+    v.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  function renderBranches() {
+    const g = document.getElementById('bgrid'); if (!g) return; g.innerHTML = '';
+    BRANCHES.forEach(b => {
+      const el = document.createElement('button'); el.type = 'button'; el.className = 'bcard';
+      el.innerHTML = `<span class="bn">${T(b.name)}</span><span class="ba">${T(b.addr)}</span><span class="bp">${b.tel}</span><span class="open">${lang === 'az' ? 'Fotolar və xəritə →' : 'Photos & map →'}</span>`;
+      el.addEventListener('click', () => openBranch(b));
+      g.appendChild(el);
+    });
+    const c = document.getElementById('bclose'); if (c && !c.dataset.bound) { c.dataset.bound = 1; c.addEventListener('click', () => { document.getElementById('bview').hidden = true; clearInterval(slideTimer); }); }
+  }
+
+  function setLang(l) { lang = l; try { localStorage.setItem('meatadore-lang', l); } catch (e) {} render(); }
+  function render() {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-az]').forEach(el => { el.textContent = el.getAttribute('data-' + lang); });
+    shell(); renderMenu(); renderTeaser(); renderBranches();
+  }
+  render();
+})();

@@ -156,3 +156,16 @@ footer{padding:0}
 .todo{display:none}
 nav.mobile[hidden]{display:none!important}
 @media (max-width:720px){ .wa-bar .wrap{padding-block:7px;gap:6px;font-size:14px} .wa-bar .wrap>span:first-child span{display:none} .wa-btn{padding:6px 12px;font-size:13px} }
+
+/* WhatsApp branch picker */
+.wa-pick{position:relative}
+.wa-pick summary{list-style:none;cursor:pointer}
+.wa-pick summary::-webkit-details-marker{display:none}
+.wa-menu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.18);min-width:260px;padding:6px;z-index:20;text-align:left}
+.wa-menu a{display:flex;flex-direction:column;gap:1px;padding:9px 12px;border-radius:8px;text-decoration:none;color:inherit}
+.wa-menu a:hover,.wa-menu a:focus-visible{background:rgba(37,211,102,.14)}
+.wa-menu a b{font-size:14px}.wa-menu a span{font-size:12px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+@media (max-width:720px){.wa-menu{left:auto;right:0;transform:none}}
+.reviews{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.review{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.review p{margin:0;font-size:15px}.review .who{font-size:13px;color:var(--ink-soft);font-weight:600}

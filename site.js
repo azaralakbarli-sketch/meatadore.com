@@ -10,11 +10,11 @@
     bolt: '',                            // Bolt Food link — add when available
   };
   const BRANCHES = [
-    {name:{az:"Sahil (Mərkəz)", en:"Sahil (Downtown)"}, addr:{az:"H. Z. Tağıyev küç. 6, Bakı", en:"6 Haji Zeynalabdin Taghiyev St, Baku"}, hours:{az:"B.e–Cü 12:00–01:00 · Ş–B 12:00–02:00", en:"Mon–Fri 12:00–01:00 · Sat–Sun 12:00–02:00"}, tel:"+994 50 770 99 66", map:"https://maps.app.goo.gl/C61J2pLQvAEkerWWA", photos:["assets/web/table-spread.jpg","assets/web/guest-eating.jpg","assets/web/burger-fries-menu.jpg"]},
-    {name:{az:"Nizami (Caspian)", en:"Nizami (Caspian)"}, addr:{az:"Cəfər Cabbarlı küç. 38, Bakı", en:"38 Jafar Jabbarli St, Baku"}, hours:{az:"B.e–Ş 12:00–00:00 · B 12:00–02:00", en:"Mon–Sat 12:00–00:00 · Sun 12:00–02:00"}, tel:"+994 51 512 34 70", map:"https://maps.app.goo.gl/xtfJTt7RzrqCkG1E8", photos:["assets/web/onion-rings.jpg","assets/web/table-spread.jpg","assets/web/foil-wrap-logo.jpg"]},
-    {name:{az:"Nərimanov (Whitestone)", en:"Narimanov (Whitestone)"}, addr:{az:"İzzətdin Həsənoğlu küç. 11, Bakı", en:"11 Izzatdin Hasanoglu St, Baku"}, hours:{az:"B.e–Ş 12:00–00:00 · B 12:00–02:00", en:"Mon–Sat 12:00–00:00 · Sun 12:00–02:00"}, tel:"+994 10 712 99 66", map:"https://maps.app.goo.gl/75RbXZXZXe6hat9G8", photos:["assets/web/burger-fries-menu.jpg","assets/web/triple-cheeseburger-hands.jpg","assets/web/guest-eating.jpg"]},
-    {name:{az:"Ağ Şəhər", en:"White City"}, addr:{az:"Mərkəzi Bulvar küç. 1, Bakı", en:"1 Markazi Bulvar St, Baku"}, hours:{az:"B.e–Ş 12:00–00:00 · B 12:00–02:00", en:"Mon–Sat 12:00–00:00 · Sun 12:00–02:00"}, tel:"+994 10 321 99 66", map:"https://maps.app.goo.gl/FXAE962VdKrWjPwT6", photos:["assets/web/guest-eating.jpg","assets/web/onion-rings.jpg","assets/web/table-spread.jpg"]},
-    {name:{az:"5-ci filial", en:"5th location"}, addr:{az:"Ünvan daxil ediləcək", en:"Address to be added"}, hours:{az:"12:00–00:00", en:"12:00–00:00"}, tel:"+994 50 770 99 66", map:"https://maps.app.goo.gl/C61J2pLQvAEkerWWA", photos:["assets/web/foil-wrap-logo.jpg","assets/web/burger-fries-menu.jpg","assets/web/table-spread.jpg"]},
+    {name:{az:"Sahil (Mərkəz)", en:"Sahil (Downtown)"}, addr:{az:"H. Z. Tağıyev küç. 6, Bakı", en:"6 Haji Zeynalabdin Taghiyev St, Baku"}, hours:{az:"B.e–Cü 12:00–01:00 · Ş–B 12:00–02:00", en:"Mon–Fri 12:00–01:00 · Sat–Sun 12:00–02:00"}, tel:"+994 50 770 99 66", wa:"994507709966", map:"https://maps.app.goo.gl/C61J2pLQvAEkerWWA", photos:["assets/web/table-spread.jpg","assets/web/guest-eating.jpg","assets/web/burger-fries-menu.jpg"]},
+    {name:{az:"Nizami (Caspian)", en:"Nizami (Caspian)"}, addr:{az:"Cəfər Cabbarlı küç. 38, Bakı", en:"38 Jafar Jabbarli St, Baku"}, hours:{az:"B.e–Ş 12:00–00:00 · B 12:00–02:00", en:"Mon–Sat 12:00–00:00 · Sun 12:00–02:00"}, tel:"+994 51 512 34 70", wa:"994515123470", map:"https://maps.app.goo.gl/xtfJTt7RzrqCkG1E8", photos:["assets/web/onion-rings.jpg","assets/web/table-spread.jpg","assets/web/foil-wrap-logo.jpg"]},
+    {name:{az:"Nərimanov (Whitestone)", en:"Narimanov (Whitestone)"}, addr:{az:"İzzətdin Həsənoğlu küç. 11, Bakı", en:"11 Izzatdin Hasanoglu St, Baku"}, hours:{az:"B.e–Ş 12:00–00:00 · B 12:00–02:00", en:"Mon–Sat 12:00–00:00 · Sun 12:00–02:00"}, tel:"+994 10 712 99 66", wa:"994107129966", map:"https://maps.app.goo.gl/75RbXZXZXe6hat9G8", photos:["assets/web/burger-fries-menu.jpg","assets/web/triple-cheeseburger-hands.jpg","assets/web/guest-eating.jpg"]},
+    {name:{az:"Ağ Şəhər", en:"White City"}, addr:{az:"Mərkəzi Bulvar küç. 1, Bakı", en:"1 Markazi Bulvar St, Baku"}, hours:{az:"B.e–Ş 12:00–00:00 · B 12:00–02:00", en:"Mon–Sat 12:00–00:00 · Sun 12:00–02:00"}, tel:"+994 10 321 99 66", wa:"994103219966", map:"https://maps.app.goo.gl/FXAE962VdKrWjPwT6", photos:["assets/web/guest-eating.jpg","assets/web/onion-rings.jpg","assets/web/table-spread.jpg"]},
+    {name:{az:"5-ci filial", en:"5th location"}, addr:{az:"Ünvan daxil ediləcək", en:"Address to be added"}, hours:{az:"12:00–00:00", en:"12:00–00:00"}, tel:"", wa:"", map:"https://maps.app.goo.gl/C61J2pLQvAEkerWWA", photos:["assets/web/foil-wrap-logo.jpg","assets/web/burger-fries-menu.jpg","assets/web/table-spread.jpg"]},
   ];
 
   let lang = 'az';
@@ -24,6 +24,7 @@
   const SIZES = ['80 qr', '160 qr', '240 qr'];
   const wa = (msg) => `https://wa.me/${CFG.whatsapp}?text=${encodeURIComponent(msg)}`;
   const page = document.body.dataset.page || 'home';
+  let waText = '';
 
   // ---------- Header / WhatsApp bar / order strip / footer ----------
   function shell() {
@@ -35,13 +36,18 @@
       ['index.html#corporate', {az:'Korporativ', en:'Corporate'}],
       ['index.html#contact', {az:'Əlaqə', en:'Contact'}],
     ];
+    waText = lang==='az' ? 'Salam! Meatadore ' : 'Hi! Meatadore ';
+    const waList = BRANCHES.filter(b=>b.wa).map(b=>`<a href="https://wa.me/${b.wa}?text=${encodeURIComponent(waText+T(b.name)+(lang==='az'?' — rezervasiya / öncədən sifariş üçün yazıram.':' — I\'d like to reserve a table / pre-order for pickup.'))}" target="_blank" rel="noopener"><b>${T(b.name)}</b><span>${b.tel}</span></a>`).join('');
     document.getElementById('shell-top').innerHTML = `
     <div class="wa-bar"><div class="wrap">
-      <span><strong>${lang==='az'?'Pulsuz çatdırılma':'Free delivery'}</strong> <span>${lang==='az'?'— sifarişi WhatsApp-la yazın':'— order on WhatsApp'}</span></span>
-      <a class="wa-btn" href="${wa(lang==='az'?'Salam, Meatadore! Sifariş vermək istəyirəm.':'Hi Meatadore! I would like to order.')}" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
-        <span>${lang==='az'?'WhatsApp-la sifariş ver':'Order on WhatsApp'}</span>
-      </a>
+      <span><strong>${lang==='az'?'Rezervasiya və öncədən sifariş':'Reservations & pre-orders'}</strong> <span>${lang==='az'?'— filialın WhatsApp-ına yazın':'— message your branch on WhatsApp'}</span></span>
+      <details class="wa-pick">
+        <summary class="wa-btn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+          <span>${lang==='az'?'WhatsApp — filialı seç':'WhatsApp — pick a branch'}</span>
+        </summary>
+        <div class="wa-menu">${waList}</div>
+      </details>
     </div></div>
     <header class="site"><div class="wrap">
       <a class="brand" href="index.html"><img class="logo" src="assets/web/logo-circle.png" alt="Meatadore"><img class="word" src="assets/web/wordmark-white.png" alt=""></a>
@@ -63,16 +69,16 @@
       <span class="label">${lang==='az'?'Sifariş:':'Order:'}</span>
       <a class="chip" href="${CFG.wolt}" target="_blank" rel="noopener"><b style="background:#00c2e8"></b>Wolt</a>
       ${CFG.bolt?`<a class="chip" href="${CFG.bolt}" target="_blank" rel="noopener"><b style="background:#34d186"></b>Bolt Food</a>`:''}
-      <a class="chip" href="${wa('Salam, Meatadore!')}" target="_blank" rel="noopener"><b style="background:var(--wa)"></b>${lang==='az'?'WhatsApp (pulsuz çatdırılma)':'WhatsApp (free delivery)'}</a>
+      <a class="chip" href="#branches"><b style="background:var(--wa)"></b>${lang==='az'?'WhatsApp — rezerv / öncədən sifariş':'WhatsApp — reserve / pre-order'}</a>
       <a class="chip" href="${CFG.instagram}" target="_blank" rel="noopener"><b style="background:#e1306c"></b>Instagram</a>
     </div>`;
 
     document.getElementById('shell-footer').innerHTML = `<div class="wrap">
       <div><h4>${lang==='az'?'Əlaqə':'Contact'}</h4><div class="phone"><a href="tel:${CFG.phone.replace(/\s/g,'')}" style="text-decoration:none">${CFG.phone}</a></div>
-        <div style="margin-top:8px"><a href="${wa('Salam, Meatadore!')}" target="_blank" rel="noopener">WhatsApp</a> · <a href="${CFG.instagram}" target="_blank" rel="noopener">Instagram</a> · <a href="${CFG.tiktok}" target="_blank" rel="noopener">TikTok</a></div></div>
+        <div style="margin-top:8px"><a href="index.html#branches">WhatsApp (${lang==='az'?'filiallar':'branches'})</a> · <a href="${CFG.instagram}" target="_blank" rel="noopener">Instagram</a> · <a href="${CFG.tiktok}" target="_blank" rel="noopener">TikTok</a></div></div>
       <div><h4>${lang==='az'?'İş saatları':'Hours'}</h4><div>${lang==='az'?'Həftə içi 12:00 – 00:00':'Weekdays 12:00 – 00:00'}</div><div>${lang==='az'?'Həftə sonu 12:00 – 02:00':'Weekends 12:00 – 02:00'}</div>
         <div style="font-size:13px;color:#a8988e">${lang==='az'?'Business lunch: həftə içi 12:00–15:00':'Business lunch: weekdays 12:00–15:00'}</div></div>
-      <div><h4>${lang==='az'?'Filiallar':'Locations'}</h4><div style="font-size:14px;line-height:1.8">${BRANCHES.map(b=>`<div>${T(b.name)} · ${b.tel}</div>`).join('')}</div></div>
+      <div><h4>${lang==='az'?'Filiallar':'Locations'}</h4><div style="font-size:14px;line-height:1.8">${BRANCHES.filter(b=>b.tel).map(b=>`<div>${T(b.name)} · ${b.tel}</div>`).join('')}</div></div>
       <div class="fine">© ${new Date().getFullYear()} Meatadore. ${lang==='az'?'Xidmət haqqı 6%. Qiymətlər QR menyu ilə eynidir.':'Service charge 6%. Prices match our QR menu.'}</div>
     </div>`;
   }
@@ -123,7 +129,8 @@
     document.getElementById('bvHours').textContent = T(b.hours);
     document.getElementById('bvMap').href = b.map;
     document.getElementById('bvMap').textContent = lang === 'az' ? 'Xəritədə aç' : 'Open in Maps';
-    const tel = document.getElementById('bvTel'); tel.textContent = b.tel; tel.href = 'tel:' + b.tel.replace(/\s/g, '');
+    const tel = document.getElementById('bvTel'); tel.hidden = !b.tel; tel.textContent = b.tel; tel.href = 'tel:' + b.tel.replace(/\s/g, '');
+    const w = document.getElementById('bvWa'); w.hidden = !b.wa; w.href = `https://wa.me/${b.wa}?text=${encodeURIComponent(waText+T(b.name)+(lang==='az'?' — rezervasiya / öncədən sifariş üçün yazıram.':' — I\'d like to reserve a table / pre-order for pickup.'))}`; w.textContent = lang==='az'?'WhatsApp — rezerv / sifariş':'WhatsApp — reserve / pre-order';
     const s = document.getElementById('slides'); s.innerHTML = b.photos.map((p, i) => `<img src="${p}" alt="" class="${i === 0 ? 'on' : ''}">`).join('');
     const d = document.getElementById('dots'); d.innerHTML = b.photos.map((p, i) => `<i class="${i === 0 ? 'on' : ''}"></i>`).join('');
     clearInterval(slideTimer); slideIdx = 0;
@@ -134,7 +141,7 @@
     const g = document.getElementById('bgrid'); if (!g) return; g.innerHTML = '';
     BRANCHES.forEach(b => {
       const el = document.createElement('button'); el.type = 'button'; el.className = 'bcard';
-      el.innerHTML = `<span class="bn">${T(b.name)}</span><span class="ba">${T(b.addr)}</span><span class="bp">${b.tel}</span><span class="open">${lang === 'az' ? 'Fotolar və xəritə →' : 'Photos & map →'}</span>`;
+      el.innerHTML = `<span class="bn">${T(b.name)}</span><span class="ba">${T(b.addr)}</span><span class="bp">${b.tel||''}</span><span class="open">${lang === 'az' ? 'Fotolar və xəritə →' : 'Photos & map →'}</span>`;
       el.addEventListener('click', () => openBranch(b));
       g.appendChild(el);
     });

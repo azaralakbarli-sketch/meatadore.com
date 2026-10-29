@@ -177,3 +177,6 @@ nav.mobile[hidden]{display:none!important}
 
 .story .tags{color:var(--red);font-weight:700;font-size:14px;letter-spacing:.02em}
 footer .tags{color:#f4ece2;font-weight:600;font-size:13px;display:inline-block;margin-bottom:6px}
+
+.card{position:relative}
+.rank{position:absolute;top:10px;left:10px;background:var(--red);color:#fff;font-family:var(--display);font-weight:800;font-size:14px;padding:3px 9px;border-radius:999px;z-index:1}

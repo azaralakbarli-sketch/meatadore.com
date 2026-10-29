@@ -115,9 +115,9 @@
   }
   function renderTeaser() {
     const t = document.getElementById('teaser'); if (!t) return;
-    const picks = ['Queen', 'Karma', 'Mary Jane', 'Lord Of The Rings', 'Philly Cheesesteak', 'Fancy'];
+    const picks = ['Mary Jane', 'Cheeseburger', 'Queen', 'Old Fashion', 'Mushroom Burger', 'Jetlag Buster']; // Clopos sales, all venues, 1 Aug–29 Oct 2026
     const all = MENU.flatMap(c => c.items);
-    t.innerHTML = picks.map(n => all.find(i => i.n === n)).filter(Boolean).map(card).join('');
+    t.innerHTML = picks.map(n => all.find(i => i.n === n)).filter(Boolean).map((it, i) => card(it).replace('<article class="card">', `<article class="card"><span class="rank">#${i + 1}</span>`)).join('');
   }
 
   // ---------- Branches ----------
